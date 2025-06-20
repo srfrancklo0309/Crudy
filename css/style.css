@@ -1,0 +1,241 @@
+:root {
+  --neon-pink: #ff11a7;
+  --teal-light: #60dcd3;
+  --purple-dark: #5c47ff;
+  --aqua-glow: #47ffcb;
+  --bg-dark: #000;
+  --neon-glow: #ff1177;
+  --modal-border-color: #00B8FF;
+}
+
+body {
+  background: radial-gradient(
+      ellipse at center,
+      rgba(127, 0, 173, 0.6) 0%,
+      rgba(0, 0, 0, 0.8) 60%,
+      var(--bg-dark) 90%
+    ),
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/31787/stars.jpg);
+  background-size: cover;
+  color: white;
+  font-family: "Monoton", monospace;
+  font-size: 2em;
+  overflow-x: hidden;
+}
+
+#overlay-title {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 0;
+}
+
+.neon-title {
+  font-family: "Monoton", monospace;
+  font-size: 1.5em;
+  color: white;
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+#background-layers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1000 !important;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.perspective-layer {
+  transform: perspective(200px) rotateX(60deg);
+  position: absolute;
+  bottom: 0;
+  width: 200vw;
+  height: 400px;
+  margin: 0 -50%;
+}
+
+.gradient-layer-top {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-dark) 0%,
+    var(--bg-dark) 25%,
+    var(--neon-pink) 100%
+  );
+}
+
+.gradient-layer-angled-left {
+  background: linear-gradient(
+    45deg,
+    var(--purple-dark) 0%,
+    transparent 50%,
+    transparent 100%
+  );
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.gradient-layer-angled-right {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 50%,
+    var(--purple-dark) 100%
+  );
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.corner-glow {
+  background: linear-gradient(
+    to bottom,
+    var(--aqua-glow) 0%,
+    transparent 54%,
+    rgba(117, 24, 240, 0) 100%
+  );
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  animation: layercorneranim 2.5s ease-in-out infinite alternate;
+}
+
+.horizontal-lines {
+  background-size: 40px 40px;
+  background-image: repeating-linear-gradient(
+      0deg,
+      var(--teal-light),
+      var(--teal-light) 2px,
+      transparent 2px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      -90deg,
+      var(--teal-light),
+      var(--teal-light) 2px,
+      transparent 2px,
+      transparent 40px
+    );
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.overlay-strip {
+  background-color: #011;
+  width: 100%;
+  position: absolute;
+  bottom: 253px;
+  transform: perspective(200px);
+}
+
+.overlay-gradient {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    var(--aqua-glow) 100%
+  );
+  height: 300px;
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  animation: layerupanim 2.5s ease-in-out infinite alternate;
+}
+
+.game-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Animaciones */
+@keyframes layercorneranim {
+  from {
+    height: 400px;
+  }
+  to {
+    height: 540px;
+  }
+}
+
+@keyframes layerupanim {
+  from {
+    height: 140px;
+  }
+  to {
+    height: 155px;
+  }
+}
+
+@keyframes neon-glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
+      0 0 40px var(--neon-pink), 0 0 70px var(--neon-pink),
+      0 0 80px var(--neon-pink), 0 0 100px var(--neon-pink),
+      0 0 150px var(--neon-glow);
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+      0 0 20px var(--neon-pink), 0 0 35px var(--neon-pink),
+      0 0 40px var(--neon-pink), 0 0 50px var(--neon-pink),
+      0 0 75px var(--neon-pink);
+  }
+}
+
+.principal-btn{
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.principal-btn:hover{
+    box-shadow: 1px 2px 10px 4px var(--neon-glow);
+}
+
+.modal-content{
+    background-color: var(--bg-dark);
+    box-shadow: 1px 1px 10px 4px var(--modal-border-color);
+}
+
+.modal-header{
+    border-bottom: none;
+}
+
+.modal-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+}
+
+.start__img{
+    width: 100%;
+}
+
+.btn-close {
+  filter: brightness(0) invert(1);
+}
+
+.modal_right-side{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0 1em;
+}
+
+.close_btn{
+    display: flex;
+    justify-content: center;
+    padding: 0.4em;
+}
