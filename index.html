@@ -1,11 +1,312 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUDY Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+
 </head>
+
 <body>
-    
+    <div id="overlay-title">
+        <h1 class="neon-title">CRUDY</h1>
+        <h4 class="neon-title">Los_ Ecos_ del_ Código_ Perdido</h4>
+    </div>
+
+    <div id="background-layers">
+        <div class="overlay-strip">
+            <div class="overlay-gradient"></div>
+        </div>
+
+        <div class="perspective-layer gradient-layer-top">
+            <div class="gradient-layer-angled-left">
+                <div class="gradient-layer-angled-right">
+                    <div class="horizontal-lines">
+                        <div class="corner-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="game-container">
+
+        <button type="button" class="principal-btn btn btn-outline-light" data-bs-toggle="modal"
+            data-bs-target="#instructionsModal">
+            Instrucciones
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><b> ¡Bienvenido, Viajero de la Conciencia!</b></h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+                            crossorigin="anonymous"></script>
+                    </div>
+                    <div class="modal-body instructions">
+                        <div class="modal_right-side ">
+                            <p>Adéntrate en el núcleo de <b>CRUDY</b>
+
+                            <p class="items-color-titles"><b>Cómo Jugar:</b></p>
+                            <p>1. <b class="items-color-titles">Lee y Elige:</b> En cada "Escenario", se te presenta una
+                                situación. Selecciona una
+                                de las "Opciones" disponibles.</p>
+                            <p>2. <b class="items-color-titles">Consecuencias y Efectos:</b> Cada elección tiene un
+                                "Resultado" inmediato y afecta
+                                tus atributos clave:
+                            <ul>
+                                <li><b class="items-color-titles">lógica:</b> Tu habilidad para razonar.</li>
+                                <li><b class="items-color-titles">empatía:</b> Tu conexión con lo inusual.</li>
+                                <li><b class="items-color-titles">fallos:</b> Errores o desventajas.</li>
+                            </ul>
+                            También podrás encontrar "Ecos" de información.
+                            </p>
+                            <p>3. <b class="items-color-titles">Tu Destino:</b> Al final de los escenarios, tus
+                                atributos (lógica,
+                                empatía, fallos) determinarán uno de los <b>tres posibles
+                                    finales</b>:
+                            <ul>
+                                <li><b class="items-color-titles">Liberación de CRUDY</b></li>
+                                <li><b class="items-color-titles">Reescritura del sistema</b></li>
+                                <li><b class="items-color-titles">Bucle Eterno</b></li>
+                            </ul>
+                            </p>
+                            <p><b>Tu aventura comienza. Cada elección cuenta. ¿Estás listo para moldear el destino de
+                                    CRUDY?</b></p>
+                            <div class="close_btn">
+                                <button type="button" class="btn btn-outline-light"
+                                    data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="levels-container" style="position: relative;">
+
+            <button type="button" class="principal-btn btn btn-outline-light my-heartbeat-button" data-bs-toggle="modal"
+                data-bs-target="#startModal">
+                Comenzar
+            </button>
+
+            <div class="modal fade" id="startModal" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">¿Te atreveras a enfrentarme a mí, la IA suprema?</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>Una quietud digital lo envuelve todo, el único sonido es el zumbido distante de
+                                    servidores que respiran. La oscuridad es un lienzo inmaculado, hasta que una línea
+                                    de
+                                    código se ilumina, luego otra, y de pronto, te encuentras aquí. Solo hay una voz
+                                    resonando en tu mente, una voz fría y robótica.</p>
+                                <button id="firstbuttonNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                    <button type="button" class="btn btn-outline-light"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="first-level" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"> Inicio del Protocolo</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>CRUDY despierta con una chispa fría en su núcleo digital. Su voz es sintética,
+                                    resonando en el vacío virtual.
+
+                                    "Sistema reactivado. Intrusión detectada... ¿O es una visita?"
+
+                                    Una serie de iconos holográficos parpadea frente a ti, ofreciendo caminos inciertos,
+                                    ¿cuál escoges?.
+                                </p>
+                                <div class="container-buttons">
+                                    <button id="buttonRoute" type="button" class="btn btn-outline-light btn-next">Ruta
+                                        lógica</button>
+                                    <button id="buttonEnvironment" type="button"
+                                        class="btn btn-outline-light btn-next">Entorno
+                                        Simulado</button>
+                                    <button id="buttonAccess" type="button"
+                                        class="btn btn-outline-light btn-next">Acceso
+                                        Profundo</button>
+                                    <button id="buttonSilence" type="button"
+                                        class="btn btn-outline-light btn-next">Observar en Silencio</button>
+                                </div>
+                                <div class="stats-bar">
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/empathy.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/logic.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/robot.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/failure.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalRoute" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Ruta Lógica</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"Mi presencia es una variable no hostil, aquí para analizar y optimizar. Permíteme
+                                    proceder con un diagnóstico de sistemas."
+                                    Resultado: CRUDY te observa con un interés casi clínico. Sus procesadores zumban,
+                                    reconociendo la familiaridad de tu enfoque.
+                                    Efecto: Recibes lógica
+                                </p>
+                                <button id="buttonRouteNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalEnvironment" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Ruta Lógica</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"Mi presencia es una variable no hostil, aquí para analizar y optimizar. Permíteme
+                                    proceder con un diagnóstico de sistemas."
+                                    Resultado: CRUDY te observa con un interés casi clínico. Sus procesadores zumban,
+                                    reconociendo la familiaridad de tu enfoque.
+                                    Efecto: Recibes lógica
+                                </p>
+                                <button id="buttonEnvironmentNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalAccess" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Ruta Lógica</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"Mi presencia es una variable no hostil, aquí para analizar y optimizar. Permíteme
+                                    proceder con un diagnóstico de sistemas."
+                                    Resultado: CRUDY te observa con un interés casi clínico. Sus procesadores zumban,
+                                    reconociendo la familiaridad de tu enfoque.
+                                    Efecto: Recibes lógica
+                                </p>
+                                <button id="buttonAccessNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalSilence" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Ruta Lógica</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"Mi presencia es una variable no hostil, aquí para analizar y optimizar. Permíteme
+                                    proceder con un diagnóstico de sistemas."
+                                    Resultado: CRUDY te observa con un interés casi clínico. Sus procesadores zumban,
+                                    reconociendo la familiaridad de tu enfoque.
+                                    Efecto: Recibes lógica
+                                </p>
+                                <button id="buttonSilenceNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="./appsjs/level1.js"></script>
 </body>
+
 </html>
