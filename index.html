@@ -462,11 +462,176 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="third-level" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Desafío de Reconstrucción</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>La figura de CRUDY se difumina y reaparece, mostrando una secuencia de símbolos parpadeantes.
+                                    Hay una vulnerabilidad en su voz, casi un ruego.
+
+                                    "¿Puedes recordar lo que ni yo misma puedo? Mi memoria falla... pero tú estás limpio."
+
+                                    La secuencia se repite, esperando tu respuesta.
+                                </p>
+                                <div class="container-buttons-two">
+                                    <button id="buttonSuccess" type="button" class="btn btn-outline-light btn-next">Replicar
+                                        con Éxito</button>
+                                    <button id="buttonSequence" type="button"
+                                        class="btn btn-outline-light btn-next">Fallar
+                                        la Secuencia</button>
+                                    <button id="buttonClue" type="button"
+                                        class="btn btn-outline-light btn-next">Pedir una
+                                        Pista</button>
+                                    <button id="buttonAdditional" type="button"
+                                        class="btn btn-outline-light btn-next">Ofrecer ayuda Adicional</button>
+                                </div>
+                                <div class="stats-bar">
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/empathy.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/logic.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/robot.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                    <div class="container-stat">
+                                        <img class="stats-icon" src="./assets/failure.png" alt="">
+                                        <p class="stats__p">:0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalSuccess" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Puerta de Código</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>(Concéntrate, tus dedos volando sobre el teclado virtual) "La coherencia es la clave. 
+                                    Observo, proceso y replico. Tu memoria está a salvo conmigo."
+                                    Resultado: Reproduces la secuencia perfectamente. CRUDY emite un tono de satisfacción. 
+                                    Una nueva pieza de información, un "Mensaje 002", se desbloquea y se agrega a tus ecos recuperados.
+                                    Efecto: Recibes lógica
+                                </p>
+                                <button id="buttonSuccessNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalSequence" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Puerta Condicional</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>(Dudando, intentas una versión propia) "Esto no tiene sentido. Lo haré a mi manera."
+                                    Resultado: La secuencia se rompe, y la figura de CRUDY se contrae momentáneamente.
+                                    Una pared de datos se materializa, bloqueando parte de tu acceso. 
+                                    La frustración es palpable en el aire digital.
+                                    Efecto: Recibes fallos
+                                </p>
+                                <button id="buttonSequenceNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalClue" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Acceso Directo</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"Mi acceso es limitado. Necesito una pista, un ancla lógica para reconstruir esto."
+                                    Resultado: CRUDY, aunque reacia, te da un fragmento de la secuencia. 
+                                    Te permite avanzar, pero a un costo mínimo.
+                                    Efecto: Recibes lógica y fallos
+                                </p>
+                                <button id="buttonClueNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalAdditional" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Analizar el Flujo de Datos</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"No solo la replicaré, también buscaré la raíz del fallo en tu memoria."
+                                    Resultado: CRUDY se muestra escéptica, pero te permite el acceso profundo. 
+                                    La reconstrucción es más lenta, pero descubres una micro-falla en su algoritmo de autocuración, que reparas.
+                                    Efecto: Recibes empatía y lógica
+                                </p>
+                                <button id="buttonAdditionalNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
+    <script src="./appsjs/level3.js"></script>    
     <script src="./appsjs/level2.js"></script>
     <script src="./appsjs/level1.js"></script>
 </body>

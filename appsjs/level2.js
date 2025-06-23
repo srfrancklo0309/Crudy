@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Elementos del DOM que representan los distintos modales (pantallas emergentes)
     const modalRouteEl = document.getElementById("modalRoute");
+    const modalEnvironmentEl = document.getElementById("modalEnvironment");
+    const modalAccessEl = document.getElementById("modalAccess");
+    const modalSilenceEl = document.getElementById("modalSilence");
     const secondLevelModalEl = document.getElementById("second-level");
     const modalDoorEl = document.getElementById("modalDoor");
     const modalConditionalEl = document.getElementById("modalConditional");
@@ -26,9 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ----------- Crear instancias Bootstrap de los modales -----------
 
     const modalRoute = new bootstrap.Modal(modalRouteEl);
-    const modalEnvironment = new bootstrap.Modal(modalRouteEl);
-    const modalAccess = new bootstrap.Modal(modalRouteEl);
-    const modalSilence = new bootstrap.Modal(modalRouteEl);
+    const modalEnvironment = new bootstrap.Modal(modalEnvironmentEl);
+    const modalAccess = new bootstrap.Modal(modalAccessEl);
+    const modalSilence = new bootstrap.Modal(modalSilenceEl);
     const secondLevelModal = new bootstrap.Modal(secondLevelModalEl);
     const modalDoor = new bootstrap.Modal(modalDoorEl);
     const modalConditional = new bootstrap.Modal(modalConditionalEl);
