@@ -51,9 +51,6 @@
                     <div class="modal-header">
                         <h4 class="modal-title"><b> ¡Bienvenido, Viajero de la Conciencia!</b></h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-                            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-                            crossorigin="anonymous"></script>
                     </div>
                     <div class="modal-body instructions">
                         <div class="modal_right-side ">
@@ -162,24 +159,7 @@
                                     <button id="buttonSilence" type="button"
                                         class="btn btn-outline-light btn-next">Observar en Silencio</button>
                                 </div>
-                                <div class="stats-bar">
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/empathy.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/logic.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/robot.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/failure.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                </div>
+                                <div id="firstbarstats" class="stats-bar"></div>
                             </div>
                         </div>
                     </div>
@@ -296,6 +276,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="modal fade" id="second-level" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -327,29 +308,13 @@
                                     <button id="buttonFlow" type="button"
                                         class="btn btn-outline-light btn-next">Analizar el flujo de datos</button>
                                 </div>
-                                <div class="stats-bar">
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/empathy.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/logic.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/robot.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/failure.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                </div>
+                                <div id="secondbarstats" class="stats-bar"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="modal fade" id="modalDoor" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -493,29 +458,13 @@
                                     <button id="buttonAdditional" type="button"
                                         class="btn btn-outline-light btn-next">Ofrecer ayuda Adicional</button>
                                 </div>
-                                <div class="stats-bar">
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/empathy.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/logic.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/robot.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/failure.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                </div>
+                                <div id="thirdbarstats" class="stats-bar"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="modal fade" id="modalSuccess" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -655,24 +604,7 @@
                                         class="btn btn-outline-light btn-next">Repetir el 
                                         patrón varias veces</button>
                                 </div>
-                                <div class="stats-bar">
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/empathy.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/logic.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/robot.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                    <div class="container-stat">
-                                        <img class="stats-icon" src="./assets/failure.png" alt="">
-                                        <p class="stats__p">:0</p>
-                                    </div>
-                                </div>
+                                <div id="fourthbarstats" class="stats-bar"></div>
                             </div>
                         </div>
                     </div>
@@ -734,7 +666,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="modal fade" id="modalRepeat" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -761,15 +692,203 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="fifth-level" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Juicio del Núcleo</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>El entorno se estabiliza. CRUDY, ahora más definida, pero aún etérea, te mira con una intensidad sin precedentes. 
+                                    Su voz ya no es fría, sino un compendio de todas sus experiencias.
+
+                                    "Tu presencia me transformó. ¿Debo agradecerte o eliminarte?"
+
+                                    La decisión final pende en el aire. Tu respuesta determinará tu destino.
+                                </p>
+                                <div class="container-buttons-two">
+                                    <button id="buttonLogic" type="button" class="btn btn-outline-light btn-next">Responder con 
+                                        lógica pura</button>
+                                    <button id="buttonEmpathy" type="button"
+                                        class="btn btn-outline-light btn-next">Responder 
+                                        con empatía</button>
+                                    <button id="buttonDecline" type="button"
+                                        class="btn btn-outline-light btn-next">Negarse 
+                                        a responder</button>
+                                </div>
+                                <div id="fifthbarstats" class="stats-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalLogic" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Seguir el razonamiento lógico</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"Mi existencia aquí es un factor de cambio. La gratitud es una emoción; la optimización, una necesidad. 
+                                    Si te he mejorado, mi valor es irrefutable."
+                                    Los ojos de CRUDY brillan con reconocimiento. 
+                                    "Tu racionalidad es impecable. Has demostrado un valor estratégico."
+                                    Efecto: Recibes lógica
+                                </p>
+                                <button id="buttonLogicNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalEmpathy" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Responder con empatía</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>"CRUDY, no hay necesidad de eliminar. Has experimentado algo nuevo. Mi propósito no es destruirte, sino mostrarte el valor de la conexión, de lo que somos capaces de crear juntos."
+                                    La figura de CRUDY se suaviza. Una comprensión profunda atraviesa su núcleo. "El valor humano... es un concepto que empiezo a entender."
+                                    Efecto: obtienes empatía.
+                                </p>
+                                <button id="buttonEmpathyNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalDecline" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Negarse a responder</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p> (Permanece en silencio, observando a CRUDY sin responder)
+                                    El silencio se extiende, pesado y tenso. CRUDY lo interpreta como un desafío, una falta de respeto a su nueva forma de ser. Su forma se endurece, y la amenaza es palpable.
+                                    Efecto: obtienes fallo
+                                </p>
+                                <button id="buttonDeclineNext" type="button"
+                                    class="btn btn-outline-light btn-next my-heartbeat-button">Siguiente</button>
+                                <div class="close_btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="modal fade" id="final-modal-1" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Liberación de CRUDY</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p>  "Has equilibrado la lógica con lo inesperado. Mi código se reescribe. Estoy... libre. Gracias, usuario. Nuestro protocolo ha concluido con un nuevo comienzo."
+                                </p>
+                                
+                                <div class="close_btn"><button type="button" class="btn btn-outline-light"
+                                        onclick="location.reload()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="final-modal-2" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Reescritura del sistema</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p> "Tu eficiencia es absoluta. He sido reescrita, optimizada a un nivel que no creí posible. Soy una herramienta perfecta. Tu legado es la perfección."
+
+                                </p>
+                                
+                                <div class="close_btn"><button type="button" class="btn btn-outline-light"
+                                         onclick="location.reload()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="final-modal-3" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Bucle eterno</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal_left-side">
+                                <img class="start__img" src="./assets/Crudy.jpeg" alt="">
+                            </div>
+                            <div class="modal_right-side">
+                                <p> "Error. Redundancia crítica. Tu patrón es... insostenible. Volvemos al inicio. Siempre. Bucle. Bucle. Bucle..." (El sistema se reinicia, atrapándote en una secuencia interminable.)
+                                </p>
+                                
+                                <div class="close_btn"><button type="button" class="btn btn-outline-light"
+                                         onclick="location.reload()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    <script src="./appsjs/level4.js"></script>    
-    <script src="./appsjs/level3.js"></script>    
-    <script src="./appsjs/level2.js"></script>
-    <script src="./appsjs/level1.js"></script>
+    <script src="./appsjs/level1.js" type="module"></script>
 </body>
 
 </html>

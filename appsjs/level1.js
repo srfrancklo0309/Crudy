@@ -1,18 +1,41 @@
-// Objeto que guarda las estadísticas del jugador
-let player = {
-    logic: 0,       // Nivel de lógica (se gana o pierde según decisiones)
-    empathy: 0,     // Nivel de empatía (se gana según interacciones emocionales)
-    echoes: 0,      // Ecos de información encontrados (no usado aún)
-    failures: 0     // Cantidad de errores o fallos cometidos
-};
+import { player } from './playerstats.js';
+import './level2.js';
+import './level3.js';
+import './level4.js';
+import './level5.js';
+import './finals.js';
 
-// Espera a que el DOM esté completamente cargado antes de ejecutar el script
+
+function updatestats(barstats) {
+
+    const containerstats = document.getElementById(barstats);
+
+    const htmltoinyect = `
+        <div class="stats-bar">
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/empathy.png" alt="Icono de Empatía">
+                <p class="stats__p">${player.empathy}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/logic.png" alt="Icono de Lógica">
+                <p class="stats__p">${player.logic}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/robot.png" alt="Icono de Ecos">
+                <p class="stats__p">${player.echoes}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/failure.png" alt="Icono de Fallos">
+                <p class="stats__p">${player.failures}</p>
+            </div>
+        </div>
+    `;
+
+    containerstats.innerHTML = htmltoinyect;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-
     // ----------- Obtener referencias a los botones y modales del HTML -----------
-
-    // // Botón "Siguiente" dentro del primer modal (introducción)
-    // const buttonNext = document.getElementById("buttonNext"); *************
 
     // Botón para pasar al primer nivel desde la introducción
     const firstbuttonNext = document.getElementById("firstbuttonNext");
@@ -46,7 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Al hacer clic en "Siguiente", pasar del modal de introducción al primer nivel
     firstbuttonNext.addEventListener("click", () => {
         startModal.hide();         // Oculta el primer modal
-        firstLevelModal.show();    // Muestra el modal con las primeras opciones
+        firstLevelModal.show();// Muestra el modal con las primeras opciones
+        updatestats("firstbarstats");
     });
 
     // Botón: Ruta lógica (aumenta lógica)
@@ -77,5 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
         modalSilence.show();
         player.logic--;            // Disminuye -1 en lógica
     });
-
 });

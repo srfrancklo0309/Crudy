@@ -1,10 +1,32 @@
-// // Objeto que guarda las estadísticas del jugador
-// let player = {
-//     logic: 0,       // Nivel de lógica (se gana o pierde según decisiones)
-//     empathy: 0,     // Nivel de empatía (se gana según interacciones emocionales)
-//     echoes: 0,      // Ecos de información encontrados (no usado aún)
-//     failures: 0     // Cantidad de errores o fallos cometidos
-// };
+import { player } from "./playerstats.js";
+
+function updatestats(barstats) {
+
+    const containerstats = document.getElementById(barstats);
+
+    const htmltoinyect = `
+        <div class="stats-bar">
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/empathy.png" alt="Icono de Empatía">
+                <p class="stats__p">${player.empathy}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/logic.png" alt="Icono de Lógica">
+                <p class="stats__p">${player.logic}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/robot.png" alt="Icono de Ecos">
+                <p class="stats__p">${player.echoes}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/failure.png" alt="Icono de Fallos">
+                <p class="stats__p">${player.failures}</p>
+            </div>
+        </div>
+    `;
+
+    containerstats.innerHTML = htmltoinyect;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -44,22 +66,38 @@ document.addEventListener("DOMContentLoaded", () => {
     // Al hacer clic en "Siguiente", pasar del modal de introducción al primer nivel
     buttonSuccessNext.addEventListener("click", () => {
         modalSuccess.hide();         // Oculta el primer modal
+        modalSequence.hide();
+        modalClue.hide(); 
+        modalAdditional.hide();
         fourthlevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("fourthbarstats");
     });
 
     buttonSequenceNext.addEventListener("click", () => {
-        modalSequence.hide();         // Oculta el primer modal
+        modalSuccess.hide();         // Oculta el primer modal
+        modalSequence.hide();
+        modalClue.hide(); 
+        modalAdditional.hide();
         fourthlevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("fourthbarstats");
     });
 
     buttonClueNext.addEventListener("click", () => {
-        modalClue.hide();         // Oculta el primer modal
+        modalSuccess.hide();         // Oculta el primer modal
+        modalSequence.hide();
+        modalClue.hide(); 
+        modalAdditional.hide();
         fourthlevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("fourthbarstats");
     });
 
     buttonAdditionalNext.addEventListener("click", () => {
-        modalAdditional.hide();         // Oculta el primer modal
+        modalSuccess.hide();         // Oculta el primer modal
+        modalSequence.hide();
+        modalClue.hide(); 
+        modalAdditional.hide();
         fourthlevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("fourthbarstats");
     });
 
     // Botón: Ruta lógica (aumenta lógica)
@@ -83,4 +121,5 @@ document.addEventListener("DOMContentLoaded", () => {
         modalRepeat.show();
         player.failures++;         // Aumenta +1 en fallos
     });
+
 });

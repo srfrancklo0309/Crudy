@@ -1,13 +1,36 @@
-// // Objeto que guarda las estadísticas del jugador
-// let player = {
-//     logic: 0,       // Nivel de lógica (se gana o pierde según decisiones)
-//     empathy: 0,     // Nivel de empatía (se gana según interacciones emocionales)
-//     echoes: 0,      // Ecos de información encontrados (no usado aún)
-//     failures: 0     // Cantidad de errores o fallos cometidos
-// };
+import { player } from "./playerstats.js";
+
+function updatestats(barstats) {
+
+    const containerstats = document.getElementById(barstats);
+
+    const htmltoinyect = `
+        <div class="stats-bar">
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/empathy.png" alt="Icono de Empatía">
+                <p class="stats__p">${player.empathy}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/logic.png" alt="Icono de Lógica">
+                <p class="stats__p">${player.logic}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/robot.png" alt="Icono de Ecos">
+                <p class="stats__p">${player.echoes}</p>
+            </div>
+            <div class="container-stat">
+                <img class="stats-icon" src="./assets/failure.png" alt="Icono de Fallos">
+                <p class="stats__p">${player.failures}</p>
+            </div>
+        </div>
+    `;
+
+    containerstats.innerHTML = htmltoinyect;
+}
 
 // Espera a que el DOM esté completamente cargado antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", () => {
+
     // Botón para pasar al primer nivel desde la introducción
     const buttonRouteNext = document.getElementById("buttonRouteNext");
     const buttonEnvironmentNext = document.getElementById("buttonEnvironmentNext");
@@ -50,22 +73,38 @@ document.addEventListener("DOMContentLoaded", () => {
     // Al hacer clic en "Siguiente", pasar del modal de introducción al primer nivel
     buttonRouteNext.addEventListener("click", () => {
         modalRoute.hide();         // Oculta el primer modal
+        modalEnvironment.hide();   
+        modalAccess.hide();  
+        modalSilence.hide();
         secondLevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("secondbarstats");
     });
 
     buttonEnvironmentNext.addEventListener("click", () => {
-        modalEnvironment.hide();         // Oculta el primer modal
+        modalRoute.hide();         // Oculta el primer modal
+        modalEnvironment.hide();   
+        modalAccess.hide();  
+        modalSilence.hide();
         secondLevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("secondbarstats");
     });
 
     buttonAccessNext.addEventListener("click", () => {
-        modalAccess.hide();         // Oculta el primer modal
+        modalRoute.hide();         // Oculta el primer modal
+        modalEnvironment.hide();   
+        modalAccess.hide();  
+        modalSilence.hide();
         secondLevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("secondbarstats");
     });
 
     buttonSilenceNext.addEventListener("click", () => {
-        modalSilence.hide();         // Oculta el primer modal
+        modalRoute.hide();         // Oculta el primer modal
+        modalEnvironment.hide();   
+        modalAccess.hide();  
+        modalSilence.hide();
         secondLevelModal.show();    // Muestra el modal con las primeras opciones
+        updatestats("secondbarstats");
     });
 
     // Botón: Ruta lógica (aumenta lógica)
