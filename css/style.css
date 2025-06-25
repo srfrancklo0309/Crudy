@@ -253,13 +253,17 @@ body {
 }
 
 .modal-left-side{
+  width: 100%;
   position: relative;
 }
 
 .start__img {
-  width: 100%;
+  width: 20vw;
+  height: 35vh;
+  object-fit: contain;
   bottom: 0;
   padding: 0;
+  margin: 0;
 }
 
 .modal_right-side {
