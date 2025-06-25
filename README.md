@@ -39,3 +39,7 @@ Instalacion y ejecucion local
 3. Abre index.html en tu navegador.
 
 > No se requiere servidor backend ni compiladores, todo funciona en el navegador con JavaScript puro.
+
+**Enlace del juego**
+
+https://srfrancklo0309.github.io/Crudy/
