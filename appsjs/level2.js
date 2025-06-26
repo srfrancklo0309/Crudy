@@ -1,56 +1,63 @@
-import { player } from "./playerstats.js";
+import { player } from "./playerstats.js"; // This line gets the 'player' object from 'playerstats.js'. It likely holds player stats like empathy, logic, etc.
 
+/**
+ * This function updates the player's stats displayed on the webpage.
+ * It injects an HTML block with stat icons and values into a specific container.
+ * @param {string} barstats The ID of the HTML element where the stats bar should be injected.
+ */
 function updatestats(barstats) {
-
+    // Get the HTML element where the stats bar will be placed, using its ID.
     const containerstats = document.getElementById(barstats);
 
+    // This is a block of HTML code (a template string) that displays the player's stats.
+    // It uses values directly from the 'player' object (e.g., player.empathy).
     const htmltoinyect = `
         <div class="stats-bar">
             <div class="container-stat">
-                <img class="stats-icon" src="./assets/empathy.png" alt="Icono de Empatía">
+                <img class="stats-icon" src="./assets/empathy.png" alt="Empathy Icon">
                 <p class="stats__p">${player.empathy}</p>
             </div>
             <div class="container-stat">
-                <img class="stats-icon" src="./assets/logic.png" alt="Icono de Lógica">
+                <img class="stats-icon" src="./assets/logic.png" alt="Logic Icon">
                 <p class="stats__p">${player.logic}</p>
             </div>
             <div class="container-stat">
-                <img class="stats-icon" src="./assets/robot.png" alt="Icono de Ecos">
+                <img class="stats-icon" src="./assets/robot.png" alt="Echoes Icon">
                 <p class="stats__p">${player.echoes}</p>
             </div>
             <div class="container-stat">
-                <img class="stats-icon" src="./assets/failure.png" alt="Icono de Fallos">
+                <img class="stats-icon" src="./assets/failure.png" alt="Failures Icon">
                 <p class="stats__p">${player.failures}</p>
             </div>
         </div>
     `;
 
+    // Insert the generated HTML string into the target container on the webpage.
     containerstats.innerHTML = htmltoinyect;
 }
 
-// Espera a que el DOM esté completamente cargado antes de ejecutar el script
+// This makes sure the code runs only after the entire HTML document is loaded.
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Botón para pasar al primer nivel desde la introducción
-    const buttonRouteNext = document.getElementById("buttonRouteNext");
-    const buttonEnvironmentNext = document.getElementById("buttonEnvironmentNext");
-    const buttonAccessNext = document.getElementById("buttonAccessNext");
-    const buttonSilenceNext = document.getElementById("buttonSilenceNext");
-    
-    // Elementos del DOM que representan los distintos modales (pantallas emergentes)
-    const modalRouteEl = document.getElementById("modalRoute");
-    const modalEnvironmentEl = document.getElementById("modalEnvironment");
-    const modalAccessEl = document.getElementById("modalAccess");
-    const modalSilenceEl = document.getElementById("modalSilence");
-    const secondLevelModalEl = document.getElementById("second-level");
-    const modalDoorEl = document.getElementById("modalDoor");
-    const modalConditionalEl = document.getElementById("modalConditional");
-    const modalStraightEl = document.getElementById("modalStraight");
-    const modalFlowEl = document.getElementById("modalFlow");
+    // Get references to the "Next" buttons that lead from the introductory modals to the first level.
+    const buttonRouteNext = document.getElementById("buttonRouteNext");           // Button for the "Route" choice.
+    const buttonEnvironmentNext = document.getElementById("buttonEnvironmentNext"); // Button for the "Environment" choice.
+    const buttonAccessNext = document.getElementById("buttonAccessNext");         // Button for the "Access" choice.
+    const buttonSilenceNext = document.getElementById("buttonSilenceNext");       // Button for the "Silence" choice.
 
-    
-    // ----------- Crear instancias Bootstrap de los modales -----------
+    // Get references to the HTML elements that represent different popup windows (modals).
+    const modalRouteEl = document.getElementById("modalRoute");           // HTML element for the Route modal.
+    const modalEnvironmentEl = document.getElementById("modalEnvironment"); // HTML element for the Environment modal.
+    const modalAccessEl = document.getElementById("modalAccess");         // HTML element for the Access modal.
+    const modalSilenceEl = document.getElementById("modalSilence");       // HTML element for the Silence modal.
+    const secondLevelModalEl = document.getElementById("second-level");   // HTML element for the second level modal (where initial choices are made).
+    const modalDoorEl = document.getElementById("modalDoor");             // HTML element for the "Door" decision modal.
+    const modalConditionalEl = document.getElementById("modalConditional"); // HTML element for the "Conditional" decision modal.
+    const modalStraightEl = document.getElementById("modalStraight");     // HTML element for the "Straight" decision modal.
+    const modalFlowEl = document.getElementById("modalFlow");             // HTML element for the "Flow" decision modal.
 
+    // Create Bootstrap modal instances for each modal element.
+    // These objects allow you to easily show or hide the modals using Bootstrap's JavaScript functions.
     const modalRoute = new bootstrap.Modal(modalRouteEl);
     const modalEnvironment = new bootstrap.Modal(modalEnvironmentEl);
     const modalAccess = new bootstrap.Modal(modalAccessEl);
@@ -61,78 +68,93 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalStraight = new bootstrap.Modal(modalStraightEl);
     const modalFlow = new bootstrap.Modal(modalFlowEl);
 
-    // ----------- Obtener los botones de decisión del primer nivel -----------
+    // Get references to the decision buttons within the first level of choices.
+    const buttonDoor = document.getElementById("buttonDoor");             // Button for the "Door" choice (increases logic).
+    const buttonConditional = document.getElementById("buttonConditional"); // Button for the "Conditional" choice (increases empathy).
+    const buttonStraight = document.getElementById("buttonStraight");     // Button for the "Straight" choice (increases failures).
+    const buttonFlow = document.getElementById("buttonFlow");             // Button for the "Flow" choice (modifies stats).
 
-    const buttonDoor = document.getElementById("buttonDoor");               // Botón: Ruta lógica
-    const buttonConditional = document.getElementById("buttonConditional");   // Botón: Entorno simulado
-    const buttonStraight = document.getElementById("buttonStraight");             // Botón: Acceso profundo
-    const buttonFlow = document.getElementById("buttonFlow");
+    // --- Add Event Listeners to Buttons ---
 
-    // ----------- Agregar eventos a los botones -----------
+    // When clicking any of the initial "Next" buttons (from introduction modals):
+    // 1. Hide all introductory modals.
+    // 2. Show the 'secondLevelModal' (which contains the first set of main choices).
+    // 3. Update the player's stats displayed on the page.
 
-    // Al hacer clic en "Siguiente", pasar del modal de introducción al primer nivel
     buttonRouteNext.addEventListener("click", () => {
-        modalRoute.hide();         // Oculta el primer modal
-        modalEnvironment.hide();   
-        modalAccess.hide();  
+        modalRoute.hide();        // Hide the Route modal.
+        modalEnvironment.hide();
+        modalAccess.hide();
         modalSilence.hide();
-        secondLevelModal.show();    // Muestra el modal con las primeras opciones
-        updatestats("secondbarstats");
+        secondLevelModal.show();  // Show the second level modal.
+        updatestats("secondbarstats"); // Update stats display.
     });
 
     buttonEnvironmentNext.addEventListener("click", () => {
-        modalRoute.hide();         // Oculta el primer modal
-        modalEnvironment.hide();   
-        modalAccess.hide();  
+        modalRoute.hide();
+        modalEnvironment.hide();
+        modalAccess.hide();
         modalSilence.hide();
-        secondLevelModal.show();    // Muestra el modal con las primeras opciones
+        secondLevelModal.show();
         updatestats("secondbarstats");
     });
 
     buttonAccessNext.addEventListener("click", () => {
-        modalRoute.hide();         // Oculta el primer modal
-        modalEnvironment.hide();   
-        modalAccess.hide();  
+        modalRoute.hide();
+        modalEnvironment.hide();
+        modalAccess.hide();
         modalSilence.hide();
-        secondLevelModal.show();    // Muestra el modal con las primeras opciones
+        secondLevelModal.show();
         updatestats("secondbarstats");
     });
 
     buttonSilenceNext.addEventListener("click", () => {
-        modalRoute.hide();         // Oculta el primer modal
-        modalEnvironment.hide();   
-        modalAccess.hide();  
+        modalRoute.hide();
+        modalEnvironment.hide();
+        modalAccess.hide();
         modalSilence.hide();
-        secondLevelModal.show();    // Muestra el modal con las primeras opciones
+        secondLevelModal.show();
         updatestats("secondbarstats");
     });
 
-    // Botón: Ruta lógica (aumenta lógica)
+    // When clicking the "Door" button (a decision in the first level):
+    // 1. Hide the current second-level modal.
+    // 2. Show the specific "Door" modal.
+    // 3. Increase the player's logic stat by 1.
     buttonDoor.addEventListener("click", () => {
-        secondLevelModal.hide();    // Oculta el primer nivel
-        modalDoor.show();         // Muestra el modal de Ruta lógica
-        player.logic++;            // Aumenta +1 en lógica
+        secondLevelModal.hide();    // Hide the first level modal.
+        modalDoor.show();           // Show the "Door" modal.
+        player.logic++;             // Increase player's logic.
     });
 
-    // Botón: Entorno simulado (aumenta empatía)
+    // When clicking the "Conditional" button:
+    // 1. Hide the current second-level modal.
+    // 2. Show the specific "Conditional" modal.
+    // 3. Increase the player's empathy stat by 1.
     buttonConditional.addEventListener("click", () => {
         secondLevelModal.hide();
         modalConditional.show();
-        player.empathy++;          // Aumenta +1 en empatía
+        player.empathy++;           // Increase player's empathy.
     });
 
-    // Botón: Acceso profundo (aumenta fallos, disminuye lógica)
+    // When clicking the "Straight" button:
+    // 1. Hide the current second-level modal.
+    // 2. Show the specific "Straight" modal.
+    // 3. Increase the player's failures stat by 1.
     buttonStraight.addEventListener("click", () => {
         secondLevelModal.hide();
         modalStraight.show();
-        player.failures++;         // Aumenta +1 en fallos
+        player.failures++;          // Increase player's failures.
     });
 
-    // Botón: Observar en silencio (disminuye lógica)
+    // When clicking the "Flow" button:
+    // 1. Hide the current second-level modal.
+    // 2. Show the specific "Flow" modal.
+    // 3. Adjust player's logic and failures stats.
     buttonFlow.addEventListener("click", () => {
         secondLevelModal.hide();
         modalFlow.show();
-        player.logic++;
-        player.failures--;          // Disminuye -1 en lógica
+        player.logic++;             // Increase player's logic.
+        player.failures--;          // Decrease player's failures.
     });
 });

@@ -1,6 +1,6 @@
 export let player = {
-    logic: 0,       // Nivel de lógica (se gana o pierde según decisiones)
-    empathy: 0,     // Nivel de empatía (se gana según interacciones emocionales)
-    echoes: 0,      // Ecos de información encontrados (no usado aún)
-    failures: 0     // Cantidad de errores o fallos cometidos
+    logic: 0,    // Player's logic level (can increase or decrease based on choices)
+    empathy: 0,  // Player's empathy level (increases with emotional interactions)
+    echoes: 0,   // Number of information "echoes" found (currently not used)
+    failures: 0  // Number of errors or failures made by the player
 };
